@@ -5,7 +5,7 @@ show_date: true
 title: "Hakkımda"
 date: 2023-04-14
 img: posts/20230414/CanerKaraca.jpg
-tags: [hakkında]
+tags: [hakkında, test]
 category: Hakkında
 author: Caner Karaca
 description: "Öğrenci"

@@ -111,7 +111,7 @@
 </script>
 
 <script src="{{ relativebase }}assets/js/jekyll-search.js"></script>
-<script src="{{ relativebase }}assets/js/jquery-3.6.0.min.js"></script>
+<script src="{{ relativebase }}assets/js/jquery-3.6.4.min.js"></script>
 
 {% if page.layout == "post" %}
   <script>
@@ -130,11 +130,11 @@
       navigator.clipboard.writeText('{{ site.url }}{{ page.url }}').then(function() {
       alerts = document.getElementsByClassName('alert')
       for (i=0; i < alerts.length; i++){
-        alerts[i].innerHTML='\u00ABlink copied\u00BB';
+        alerts[i].innerHTML='\u00ABbağlantı kopyalandı\u00BB';
         setTimeout((function(i){ return function(){alerts[i].innerHTML='';}})(i), 1600 );
       };
       }, function() {
-        prompt("Unable to copy, please use this link:", "{{ site.url }}{{ page.url }}");
+        prompt("Kopyalanamıyor, lütfen bu bağlantıyı kullanın:", "{{ site.url }}{{ page.url }}");
       });
     }
 
@@ -162,7 +162,7 @@
           tweetSpanText.appendChild(document.createTextNode(tweetTags[i].textContent));
           tweetSpanIcon = document.createElement('span');
           tweetSpanIcon.className = 'tweetIcon';
-          tweetSpanIcon.appendChild(document.createTextNode("click to tweet"));
+          tweetSpanIcon.appendChild(document.createTextNode("tweetlemek için tıklayın"));
           tweetI = document.createElement("i");
           tweetI.className = 'fa fa-twitter';
           tweetSpanIcon.appendChild(tweetI);
@@ -240,9 +240,9 @@
       resultsContainer: document.getElementById('results-container'),
       json: '{{ relativebase }}search.json',
       searchResultTemplate: '<li><a href="{url}" title="{description}">{title}</a><p>{description}</p></li>',
-      noResultsText: 'No results found',
+      noResultsText: 'Sonuç bulunamadı',
       fuzzy: false,
-      exclude: ['Welcome']
+      exclude: ['Hoşgeldiniz']
     });
 </script>
 

@@ -42,7 +42,7 @@ stackoverflow: # Add your stackoverflow account
 mailchimp: # ""
 
 # Tracker
-analytics: # Google Analytics tag ID
+analytics: G-WNGQQLK5YG # Google Analytics tag ID
 fbadmin: # Facebook ID admin
 
 # Paginate
