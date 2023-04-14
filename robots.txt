@@ -1,2 +1,3 @@
-User-agent: *
-Disallow:
+User-Agent: *
+Allow: /
+Sitemap: https://canerkaraca23.github.io/sitemap.xml
