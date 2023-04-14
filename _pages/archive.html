@@ -9,7 +9,7 @@ infinite: yes
 <div class="archive tag-master">
 	<form class="search-form inline">
 		<div id="search-container">
-			<input type="text" id="search-input" class="search" placeholder="Search">
+			<input type="text" id="search-input" class="search" placeholder="Ara">
 		</div>
 	</form>
 	<ul id="results-container" class="results-search"></ul>
@@ -20,7 +20,7 @@ infinite: yes
 			<a class="post-list-title" href="{{ post_url }}">{{ post.title }}</a>
 			{% include post_meta.html type="post-card-meta" %}
 			<div class="post-excerpt">
-				{{ post.content | markdownify | strip_newlines | truncatewords: 100 }}<a class="read-more" href="{{ post_url }}"> read more</a>
+				{{ post.content | markdownify | strip_newlines | truncatewords: 100 }}<a class="read-more" href="{{ post_url }}"> Daha Fazla Oku</a>
 			</div>
 		</div>
 	{% endfor %}
