@@ -1,0 +1,16 @@
+<container>
+    <cityname>
+        <DefaultValue>TRUE</DefaultValue>
+        <ItemID>1</ItemID>
+        <City>İstanbul</City>
+        <CTA>Güzel Şehir</CTA>
+        <Image>https://tekce.net/files/upload/images/istanbul-is-the-8th-most-popular-city-03.jpg</Image>
+    </cityname>
+    <cityname>
+        <DefaultValue>FALSE</DefaultValue>
+        <ItemID>2</ItemID>
+        <City>İstanbul</City>
+        <CTA>Kalabalık Şehir</CTA>
+        <Image>https://cekergezer.com/wp-content/uploads/2021/03/galata-kulesi-fotograflari-istanbul-fotograflari-cekergezer-hakan-aydin.jpg</Image>
+    </cityname>
+</container>
