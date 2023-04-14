@@ -23,11 +23,11 @@
     {% assign words = document.content | strip_html | number_of_words %}
     <{% if include.type == "recent-item-meta" %}p{% else %}span{% endif %} class="page_meta-readtime">
       {% if words < words_per_minute %}
-        1 {{ site.data.ui-text[site.locale].minute_read | default: 'dakikadan' }} {{ site.data.ui-text[site.locale].less_than | default: ' 'dan daha kısa okuma süresi' }}
+        1 {{ site.data.ui-text[site.locale].minute_read | default: 'dakikadan' }} {{ site.data.ui-text[site.locale].less_than | default: 'daha kısa okuma süresi' }}
       {% elsif words == words_per_minute %}
-        1 {{ site.data.ui-text[site.locale].minute_read | default: 'minute read' }}
+        1 {{ site.data.ui-text[site.locale].minute_read | default: 'dakika okuma süresi' }}
       {% else %}
-        {{ words | divided_by: words_per_minute }} {{ site.data.ui-text[site.locale].minute_read | default: 'minute read' }}
+        {{ words | divided_by: words_per_minute }} {{ site.data.ui-text[site.locale].minute_read | default: 'dakika okuma süresi' }}
       {% endif %}
     </{% if include.type == "recent-item-meta" %}p{% else %}span{% endif %}>
   {% endif %}

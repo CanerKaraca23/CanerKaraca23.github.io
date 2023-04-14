@@ -3,7 +3,7 @@ layout: post
 read_time: true
 show_date: true
 title: "Hakkımda"
-date: 2023-04-14
+date: 2023-04-13
 img: posts/20230414/CanerKaraca.jpg
 tags: [hakkında, test]
 category: Hakkında
