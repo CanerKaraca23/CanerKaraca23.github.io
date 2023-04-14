@@ -17,4 +17,4 @@ Web sitemin kaynak kodlarına [bu](https://github.com/CanerKaraca23/CanerKaraca2
 
 <tweet>Bu araç ile kutu içerisindeki yazıyı tek tıkla kolayca tweet atabilirsiniz.</tweet>
 
-(./assets/img/posts/20230414/CanerKaraca.jpg)
+<img src="./assets/img/posts/20230414/CanerKaraca.jpg">
