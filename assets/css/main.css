@@ -30,14 +30,14 @@ html[data-theme="dark"]  {
   --accent:       #d14c47;    /* accent     */
   --accent-dark:  #DBBEA1;    /* accent 2   */
   --main:         #5F8081;    /* main color */
-  --main-dim:     #333D47;    /* dimmed version of main color */
-  --text:         #CBCCCD;
+  --main-dim:     #3A3B3C;    /* dimmed version of main color */
+  --text:         #E4E6EB;
   --grey1:        #B1B1AE;
   --grey2:        #959692;
   --grey3:        #7C7E7B;
   --grey4:        #636564;
   --grey5:        #3B3D40;
-  --background:   #3d3d3d;
+  --background:   #242526;
   --shadow:       #aaaaaa;
   --github:       #000;
 }
