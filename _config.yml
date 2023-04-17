@@ -87,6 +87,9 @@ plugins:
   - jekyll-paginate
   - jekyll-feed
   - jekyll-sitemap
+  - jekyll-date-localization
 
-include: [_pages]
+include: ["_pages", "_locales"]
 exclude: ["node_modules", "gulpfile.js", "package.json", "yarn.lock", "package-lock.json", "assets/css/sass/"]
+
+date_locale: tr
