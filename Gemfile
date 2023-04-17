@@ -7,5 +7,4 @@ group :jekyll_plugins do
   gem "jekyll-paginate"
   gem "jekyll-feed"
   gem "jekyll-sitemap"
-  gem 'rails-i18n', '~> 7.0.0'
 end
