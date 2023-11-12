@@ -1,7 +1,7 @@
 {% capture tocWorkspace %}
     {% comment %}
-        Version 1.1.1
-            forked and modified from version 1.1.0 at https://github.com/allejo/jekyll-toc
+        Version 1.2.1
+            forked and modified from version 1.2.0 at https://github.com/allejo/jekyll-toc
 
         Usage:
             {% include toc.html html=content sanitize=true class="inline_toc" id="my_toc" h_min=2 h_max=3 %}
@@ -148,4 +148,4 @@
             {% capture jekyll_toc %}<{{ listModifier }}{{ rootAttributes }}>{{ nodes | shift | join: '>' }}>{% endcapture %}
         {% endif %}
     {% endif %}
-{% endcapture %}{% assign tocWorkspace = '' %}{{ jekyll_toc }}
+{% endcapture %}{% assign tocWorkspace = '' %}{{ jekyll_toc -}}
