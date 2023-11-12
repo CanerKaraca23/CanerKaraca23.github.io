@@ -111,7 +111,7 @@
 </script>
 
 <script src="{{ relativebase }}assets/js/jekyll-search.js"></script>
-<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js"></script>
 
 {% if page.layout == "post" %}
   <script>
@@ -181,7 +181,7 @@
 {% endif %}
 
 {% if page.toc %}
-  <script src="https://cdn.jsdelivr.net/gh/cferdinandi/gumshoe@5.1.1/dist/gumshoe.polyfills.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/gh/cferdinandi/gumshoe@latest/dist/gumshoe.polyfills.min.js"></script>
   <script>
     var spy = new Gumshoe("#toc-content a", {
       navClass:"active",
@@ -335,7 +335,7 @@
 {% endif %}
 
 {%- if site.extensions.mermaid_enable and page.mermaid -%}  
-  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/mermaid@9.4.3/dist/mermaid.min.js"></script>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/mermaid@latest/dist/mermaid.min.js"></script>
   <script type="text/javascript">
     (function () {
       var config = {
