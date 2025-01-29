@@ -7,12 +7,12 @@
   "author": "Artem Sheludko",
   "license": "MIT",
   "dependencies": {
-    "browser-sync": "^3.0.2",
+    "browser-sync": "^3.0.3",
     "child_process": "^1.0.2",
     "gulp": "^5.0.0",
     "gulp-autoprefixer": "^9.0.0",
     "gulp-cache": "^1.1.3",
-    "gulp-imagemin": "^9.0.0",
+    "gulp-imagemin": "^9.1.0",
     "gulp-sass": "^6.0.0",
     "imagemin-pngquant": "^10.0.0"
   },
