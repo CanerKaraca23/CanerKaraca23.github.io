@@ -1,22 +1,24 @@
 {
-  "name": "Jekyll-Gulp-Sass-Autoprefixer-Imagemin-BrowserSync",
+  "name": "caner-karaca-blog",
   "version": "1.0.0",
-  "description": "A starter project for Jekyll",
-  "main": "index.js",
-  "repository": "https://github.com/artemsheludko/Jekyll-Gulp-Sass-Autoprefixer-Imagemin-BrowserSync",
-  "author": "Artem Sheludko",
+  "description": "Caner Karaca's personal blog built with Jekyll",
+  "main": "gulpfile.js",
+  "repository": "https://github.com/CanerKaraca23/CanerKaraca23.github.io",
+  "author": "Caner Karaca",
   "license": "MIT",
+  "engines": {
+    "node": ">=16.0.0",
+    "npm": ">=8.0.0"
+  },
   "dependencies": {
     "browser-sync": "^3.0.4",
-    "child_process": "^1.0.2",
     "gulp": "^5.0.1",
-    "gulp-autoprefixer": "^9.0.0",
-    "gulp-cache": "^1.1.3",
-    "gulp-imagemin": "^9.1.0",
-    "gulp-sass": "^6.0.1",
-    "imagemin-pngquant": "^10.0.0"
+    "gulp-cache": "^1.1.3"
   },
   "scripts": {
-    "dev": "node_modules\\.bin\\gulp watch"
+    "dev": "gulp watch",
+    "build": "gulp",
+    "start": "gulp default",
+    "serve": "gulp serve"
   }
 }

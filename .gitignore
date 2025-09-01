@@ -11,3 +11,18 @@
 /.vscode/
 /.idea/
 .liquidrc
+
+# Dependencies
+node_modules/
+package-lock.json
+
+# Build artifacts
+_site/
+.sass-cache/
+.jekyll-cache/
+.jekyll-metadata
+
+# Log files
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
