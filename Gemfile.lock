@@ -303,11 +303,18 @@ PLATFORMS
   x86_64-linux-musl
 
 DEPENDENCIES
-  github-pages
-  jekyll
-  jekyll-feed
-  jekyll-paginate
-  jekyll-sitemap
+  github-pages (~> 232)
+  jekyll-feed (~> 0.17)
+  jekyll-paginate (~> 1.1)
+  jekyll-seo-tag (~> 2.8)
+  jekyll-sitemap (~> 1.4)
+  kramdown-parser-gfm (~> 1.1)
+  tzinfo-data
+  wdm (~> 0.1.1)
+  webrick (~> 1.8)
+
+RUBY VERSION
+   ruby 3.2.3p157
 
 BUNDLED WITH
    2.7.1
