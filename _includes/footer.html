@@ -1,32 +1,32 @@
 {% include calculate_relative_base.html %}
 {% include escape-404.html %}
 
-<footer class="main-footer">
+<footer class="main-footer" role="contentinfo">
     <div class="footer-wrapper">
         <div class="logo-symbol">
-            <a class="logo-link" title="{{ site.title }}" href="{{ relativebase }}">
-                <img class="logo-symbol" src="/assets/img/branding/CanerKaraca.svg"/>
+            <a class="logo-link" title="{{ site.title }} ana sayfa" href="{{ relativebase }}" aria-label="{{ site.title }} ana sayfa">
+                <img class="logo-symbol" src="/assets/img/branding/CanerKaraca.svg" alt="{{ site.title }} footer logosu"/>
             </a>
         </div>
         <div class="copyright">
           <p>{{site.time | date: '%Y'}} &copy; {{site.author}}</p>
         </div>
-        <div class="footer-nav">
+        <nav class="footer-nav" aria-label="Footer navigasyonu">
             <div>
-                <a href="{{ relativebase }}archive.html">
+                <a href="{{ relativebase }}archive.html" aria-label="Tüm gönderileri görüntüle">
                     Gönderiler
                 </a>
             </div>
             <div>
-                <a href="{{ relativebase }}tags.html">
+                <a href="{{ relativebase }}tags.html" aria-label="Etiketleri görüntüle">
                     Etiketler
                 </a>
             </div>
             <div>
-                <a href="{{ relativebase }}about.html">
+                <a href="{{ relativebase }}about.html" aria-label="Hakkında sayfasını görüntüle">
                     Hakkında
                 </a>
             </div>
-        </div>
+        </nav>
     </div>
 </footer>

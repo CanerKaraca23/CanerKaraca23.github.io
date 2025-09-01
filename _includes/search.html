@@ -1,14 +1,18 @@
-<div class="search-box">
+<div class="search-box" role="dialog" aria-label="Arama kutusu" aria-modal="true">
   <div class="wrapper">
     <div class="search-grid">
-      <form class="search-form">
+      <form class="search-form" role="search">
         <div id="search-container">
-          <input type="text" id="search-input" class="search" placeholder="Ara">
+          <label for="search-input" class="sr-only">Site içinde ara</label>
+          <input type="text" id="search-input" class="search" placeholder="Site içinde ara" aria-label="Arama terimi girin" autocomplete="off">
         </div>
       </form>
-      <ul id="results-container" class="results-search"></ul>
+      <ul id="results-container" class="results-search" aria-label="Arama sonuçları" aria-live="polite"></ul>
       <div class="icon-close-container">
-        <span class="search-icon-close"><i class="fa fa-times" aria-hidden="true"></i></span>
+        <button class="search-icon-close" aria-label="Arama kutusunu kapat">
+          <i class="fa fa-times" aria-hidden="true"></i>
+          <span class="sr-only">Kapat</span>
+        </button>
       </div>
     </div>
   </div>
