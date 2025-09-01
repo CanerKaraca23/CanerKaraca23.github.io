@@ -65,7 +65,7 @@ comments_opts:
   # Disqus
   discus_identifier: # Add your discus identifier
 
-# Build settings
+# Build settings - Jekyll 4.x modern configuration
 markdown: kramdown
 kramdown:
   input: GFM
@@ -73,15 +73,31 @@ kramdown:
   syntax_highlighter: rouge
   syntax_highlighter_opts:
     css_class: 'highlight'
+    default_lang: text
+    guess_lang: true
     span:
       line_numbers: false
     block:
       line_numbers: false
+      start_line: 1
 
 mathjax: true
 highlighter: rouge
 
-# Compression settings
+# Modern Jekyll 4.x features
+liquid:
+  error_mode: warn
+  strict_filters: false
+  strict_variables: false
+
+# Performance optimizations
+incremental: true
+regenerate: true
+safe: false
+profile: false
+livereload: false
+
+# Compression settings - enhanced for Jekyll 4.x
 compress_html:
   clippings: all
   comments: all
@@ -100,22 +116,27 @@ category_archive:
   type: liquid
   path: /categories/
 
-# Sass/SCSS processing
+# Sass/SCSS processing - Jekyll 4.x with Dart Sass
 sass:
+  implementation: sass-embedded
   style: compressed
   sass_dir: assets/css/sass
   sourcemap: never
+  load_paths:
+    - _sass
+    - node_modules
 
-# Plugins
+# Plugins - Jekyll 4.x compatible
 plugins:
   - jekyll-paginate
   - jekyll-feed
   - jekyll-sitemap
   - jekyll-seo-tag
+  - jekyll-redirect-from
+  - jekyll-include-cache
 
 # Build settings
-incremental: false
-livereload: false
+watch: false
 
 # File management
 include: [_pages]
@@ -131,16 +152,32 @@ exclude:
   - LICENSE
   - "*.log"
   - assets/css/sass/
+  - Gemfile
+  - Gemfile.lock
+  - Gemfile.latest
+  - Gemfile.test
+  - .git/
+  - .github/
+  - .gitignore
 
 # Keep files
 keep_files:
   - .git
   - .svn
+  - .nojekyll
 
 # Encoding
 encoding: utf-8
 
-# Defaults
+# Collections - Jekyll 4.x modern collection setup
+collections:
+  authors:
+    output: false
+  categories:
+    output: true
+    permalink: /:collection/:name/
+
+# Defaults - enhanced for Jekyll 4.x
 defaults:
   - scope:
       path: ""
@@ -149,9 +186,29 @@ defaults:
       layout: post
       author: Caner Karaca
       show_sidebar: true
+      comments: true
+      share: true
+      related: true
   - scope:
       path: "_pages"
       type: pages
     values:
       layout: page
       show_sidebar: true
+      comments: false
+  - scope:
+      path: ""
+      type: categories
+    values:
+      layout: category
+      show_sidebar: true
+
+# Jekyll 4.x specific optimization
+strict_front_matter: false
+future: false
+unpublished: false
+limit_posts: 0
+show_drafts: false
+
+# Security - Jekyll 4.x
+whitelist: []
