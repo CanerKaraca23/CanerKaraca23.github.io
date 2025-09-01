@@ -19,6 +19,11 @@
     "dev": "gulp watch",
     "build": "gulp",
     "start": "gulp default",
-    "serve": "gulp serve"
+    "serve": "gulp serve",
+    "lint": "eslint assets/js/**/*.js",
+    "lint:fix": "eslint assets/js/**/*.js --fix"
+  },
+  "devDependencies": {
+    "eslint": "^8.57.1"
   }
 }

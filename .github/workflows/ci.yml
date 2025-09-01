@@ -1,0 +1,73 @@
+name: CI
+
+on:
+  push:
+    branches: [ main, develop ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+    name: Lint
+    
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v4
+      
+    - name: Setup Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version-file: '.nvmrc'
+        cache: 'npm'
+        
+    - name: Install dependencies
+      run: npm ci
+      
+    - name: Run ESLint
+      run: npm run lint || true
+      
+    - name: Run ESLint (with report)
+      run: npm run lint -- --format=json --output-file=eslint-report.json || true
+
+  build:
+    runs-on: ubuntu-latest
+    name: Build
+    needs: lint
+    
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v4
+      
+    - name: Setup Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version-file: '.nvmrc'
+        cache: 'npm'
+        
+    - name: Setup Ruby
+      uses: ruby/setup-ruby@v1
+      with:
+        ruby-version: '3.1'
+        bundler-cache: true
+        
+    - name: Install Node dependencies
+      run: npm ci
+      
+    - name: Install Ruby dependencies
+      run: bundle install
+      
+    - name: Build with Gulp
+      run: npm run build
+      
+    - name: Build with Jekyll
+      run: bundle exec jekyll build
+      env:
+        JEKYLL_ENV: production
+        
+    - name: Upload build artifacts
+      uses: actions/upload-artifact@v4
+      with:
+        name: built-site
+        path: _site/
+        retention-days: 1

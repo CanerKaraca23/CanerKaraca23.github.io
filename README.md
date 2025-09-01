@@ -54,6 +54,42 @@ npm run serve
 - Security headers
 - Performance optimizations
 
+## 🚀 CI/CD Pipeline
+
+This project uses GitHub Actions for automated building, testing, and deployment.
+
+### Workflows
+
+#### CI Workflow (`.github/workflows/ci.yml`)
+Runs on every push to `main`/`develop` branches and pull requests:
+
+- **Linting**: ESLint validation for JavaScript files
+- **Building**: 
+  - Node.js dependencies installation
+  - Ruby/Jekyll dependencies installation  
+  - Gulp build process
+  - Jekyll site generation
+- **Artifacts**: Uploads built site for review
+
+#### Deployment Workflow (`.github/workflows/deploy.yml`)
+Automatically deploys to GitHub Pages on push to `main`:
+
+- **Build**: Same as CI workflow
+- **Deploy**: Deploys built site to GitHub Pages
+
+### Dependabot
+
+Automated dependency updates are configured for:
+- **GitHub Actions**: Weekly updates for workflow dependencies
+- **npm**: Weekly updates for Node.js packages (Gulp, BrowserSync, etc.)
+- **Bundler**: Weekly updates for Ruby gems (Jekyll, plugins, etc.)
+
+### Local Development vs Production
+
+- **Local**: Uses Gulp for live-reload development server
+- **Production**: Uses Jekyll for optimized static site generation
+- **Both**: Share the same source files and build processes
+
 ## 📝 License
 
 MIT License - see [LICENSE](LICENSE) file for details.
