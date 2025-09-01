@@ -1,0 +1,196 @@
+/* Accessibility Improvements */
+
+/* Skip link */
+.skip-link {
+  position: absolute;
+  top: -40px;
+  left: 6px;
+  background: #000;
+  color: #fff;
+  padding: 8px;
+  text-decoration: none;
+  z-index: 9999;
+  border-radius: 0 0 4px 4px;
+  font-weight: bold;
+}
+
+.skip-link:focus {
+  top: 0;
+}
+
+/* Screen reader only text */
+.sr-only {
+  position: absolute !important;
+  width: 1px !important;
+  height: 1px !important;
+  padding: 0 !important;
+  margin: -1px !important;
+  overflow: hidden !important;
+  clip: rect(0, 0, 0, 0) !important;
+  white-space: nowrap !important;
+  border: 0 !important;
+}
+
+/* Improved focus styles */
+a:focus,
+button:focus,
+input:focus,
+textarea:focus,
+select:focus,
+.top:focus,
+.menu-icon:focus,
+.search-icon:focus {
+  outline: 3px solid #0078d4;
+  outline-offset: 2px;
+  background-color: rgba(0, 120, 212, 0.1);
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+  a:focus,
+  button:focus,
+  input:focus,
+  textarea:focus,
+  select:focus {
+    outline: 3px solid;
+    outline-offset: 2px;
+  }
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Better button accessibility */
+.top,
+.menu-icon,
+.search-icon,
+.search-icon-close {
+  cursor: pointer;
+  border: none;
+  background: transparent;
+  padding: 8px;
+}
+
+.top:hover,
+.top:focus,
+.menu-icon:hover,
+.menu-icon:focus,
+.search-icon:hover,
+.search-icon:focus {
+  opacity: 0.8;
+  transform: scale(1.05);
+}
+
+/* Enhanced search form accessibility */
+.search-form label[for="search-input"] {
+  display: block;
+  margin-bottom: 4px;
+  font-weight: bold;
+}
+
+.search-form input:focus {
+  border: 2px solid #0078d4;
+  box-shadow: 0 0 0 2px rgba(0, 120, 212, 0.3);
+}
+
+/* Improve link contrast and readability */
+a {
+  text-decoration-skip-ink: auto;
+  text-underline-offset: 2px;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* Better spacing for screen readers */
+.post-card-title {
+  margin: 0 0 8px 0;
+}
+
+/* Improved heading hierarchy styles */
+h1, h2, h3, h4, h5, h6 {
+  margin-top: 1.5em;
+  margin-bottom: 0.5em;
+  line-height: 1.2;
+}
+
+h1:first-child,
+h2:first-child,
+h3:first-child,
+h4:first-child,
+h5:first-child,
+h6:first-child {
+  margin-top: 0;
+}
+
+/* Ensure minimum touch target size for mobile */
+@media (max-width: 768px) {
+  .post-card-link,
+  .top,
+  button,
+  input[type="submit"],
+  input[type="button"],
+  .menu-icon,
+  .search-icon {
+    min-height: 44px;
+    min-width: 44px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+}
+
+/* Dark mode accessibility improvements */
+@media (prefers-color-scheme: dark) {
+  .skip-link {
+    background: #fff;
+    color: #000;
+  }
+  
+  a:focus,
+  button:focus,
+  input:focus,
+  textarea:focus,
+  select:focus {
+    outline-color: #00d4ff;
+    background-color: rgba(0, 212, 255, 0.1);
+  }
+}
+
+/* Focus management for modal dialogs */
+.search-box[aria-modal="true"] {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 1000;
+}
+
+/* Keyboard navigation improvements */
+.main-nav ul li a:focus,
+.footer-nav a:focus {
+  outline: 2px solid #0078d4;
+  outline-offset: 2px;
+  text-decoration: underline;
+}
+
+/* Improve form error states */
+input:invalid {
+  border-color: #d13438;
+  box-shadow: 0 0 0 2px rgba(209, 52, 56, 0.3);
+}
+
+input:invalid:focus {
+  outline-color: #d13438;
+}

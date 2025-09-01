@@ -15,29 +15,31 @@ layout: default
 </section>
 <div class="flex-container transparent">
   {% include header.html %}
-  <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
+  <article class="page" itemscope itemtype="https://schema.org/CreativeWork" role="main" aria-label="Makale içeriği">
     {% include schema-meta.html %}
-    <div class="page-image">
-      <div class="cover-image" style="background: url('{{ relativebase }}assets/img/{{ page.img }}') center no-repeat; background-size: cover;"></div>
-    </div>
-    <div class="wrapper">
+    <header class="page-image">
+      <div class="cover-image" style="background: url('{{ relativebase }}assets/img/{{ page.img }}') center no-repeat; background-size: cover;" aria-label="Makale kapak görseli"></div>
+    </header>
+    <main class="wrapper">
       <div class="page-content">
-        <div class="header-page">
+        <header class="header-page">
           <h1 class="page-title">{{ page.title }}</h1>
           {% include post_meta.html type="post-page-meta" %}
-        </div>
+        </header>
         {% include sidebar.html context="post" class="side" id="sidebar" %}
         {% if page.toc %}{% include sidebar-toc.html %}{% endif %}
         {% include github-button.html %}
-        {{page.content | markdownify}}
+        <section class="post-content" aria-label="Makale içeriği">
+          {{page.content | markdownify}}
+        </section>
         {% include sidebar.html context="post" class="inline" id="post-end" %}
-        <div class="separator"></div>
+        <div class="separator" role="separator"></div>
         {% include author-box.html %}
         {% include recent-post.html %}
         {% include newsletter.html %}
         {% include comments.html %}
       </div>
-    </div> <!-- End Wrapper -->
+    </main> <!-- End Wrapper -->
   </article>
   {% include search.html %}
   {% include footer.html %}

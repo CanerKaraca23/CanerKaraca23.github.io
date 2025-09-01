@@ -2,6 +2,7 @@
 {% include escape-404.html %}
 
 <head>
+	{% include security-headers.html %}
 	<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4679210546429533"
      crossorigin="anonymous"></script>
 	<meta charset="utf-8">
@@ -63,6 +64,7 @@
 	<link rel="stylesheet" href="{{ relativebase }}assets/fonts/font-awesome/css/font-awesome.min.css">
 	<!-- Styles -->
 	<link rel="stylesheet" href="{{ relativebase }}assets/css/main.css">
+	<link rel="stylesheet" href="{{ relativebase }}assets/css/accessibility.css">
 	{% include favicon.html %}
 	{% if page.layout == 'post' %}
 	<link rel="stylesheet" href="{{ relativebase }}assets/css/highlighter/{{ site.highlight_theme }}.css">

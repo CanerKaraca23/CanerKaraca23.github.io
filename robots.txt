@@ -9,12 +9,27 @@ Disallow: /node_modules/
 Disallow: /_site/
 Disallow: /.sass-cache/
 Disallow: /.jekyll-cache/
+Disallow: /assets/css/sass/
+Disallow: /gulpfile.js
+Disallow: /package.json
+Disallow: /package-lock.json
+Disallow: /yarn.lock
 
-# Allow all other content
-Allow: /
+# Allow important assets and pages
+Allow: /assets/css/
+Allow: /assets/js/
+Allow: /assets/img/
+Allow: /assets/fonts/
 
 # Sitemap location
 Sitemap: https://canerkaraca23.github.io/sitemap.xml
 
 # Crawl delay to be respectful
+Crawl-delay: 1
+
+# Cache directives for performance
+User-agent: Googlebot
+Crawl-delay: 0
+
+User-agent: Bingbot
 Crawl-delay: 1

@@ -3,14 +3,14 @@ layout: default
 ---
 <div class="flex-container transparent">
   {% include header.html %}
-  <div class="content wrapper">
+  <main class="content wrapper" role="main" aria-label="Ana içerik">
     {{ content }}
     {% include search.html %}
     {% include pagination.html %}
-    <div class="center-tags">
+    <aside class="center-tags" aria-label="Etiket bulutu">
       {% include get-site-tags.html %}
       {% include tag_cloud.html %}
-    </div>
-  </div> <!-- End Wrapper -->
+    </aside>
+  </main> <!-- End Wrapper -->
   {% include footer.html %}
 </div><!-- End flex-container -->
