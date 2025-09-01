@@ -1,3 +1,20 @@
-User-Agent: *
+User-agent: *
 Allow: /
+
+# Disallow common admin and private paths
+Disallow: /admin/
+Disallow: /private/
+Disallow: /.git/
+Disallow: /node_modules/
+Disallow: /_site/
+Disallow: /.sass-cache/
+Disallow: /.jekyll-cache/
+
+# Allow all other content
+Allow: /
+
+# Sitemap location
 Sitemap: https://canerkaraca23.github.io/sitemap.xml
+
+# Crawl delay to be respectful
+Crawl-delay: 1
