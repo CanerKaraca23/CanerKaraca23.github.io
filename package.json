@@ -15,10 +15,19 @@
     "gulp": "^5.0.1",
     "gulp-cache": "^1.1.3"
   },
+  "devDependencies": {
+    "eslint": "^8.57.0",
+    "prettier": "^3.3.3"
+  },
   "scripts": {
     "dev": "gulp watch",
     "build": "gulp",
     "start": "gulp default",
-    "serve": "gulp serve"
+    "serve": "gulp serve",
+    "lint": "eslint assets/js/main.js assets/js/infinite-jekyll.js gulpfile.js",
+    "lint:fix": "eslint assets/js/main.js assets/js/infinite-jekyll.js gulpfile.js --fix",
+    "format": "prettier --write assets/js/main.js assets/js/infinite-jekyll.js gulpfile.js",
+    "format:check": "prettier --check assets/js/main.js assets/js/infinite-jekyll.js gulpfile.js",
+    "quality": "npm run lint:fix && npm run format"
   }
 }

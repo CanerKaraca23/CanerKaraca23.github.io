@@ -2,11 +2,12 @@
   "env": {
     "browser": true,
     "jquery": true,
-    "es6": true
+    "es2022": true,
+    "node": true
   },
   "extends": ["eslint:recommended"],
   "parserOptions": {
-    "ecmaVersion": 2018,
+    "ecmaVersion": 2022,
     "sourceType": "module"
   },
   "rules": {
@@ -16,7 +17,30 @@
     "quotes": ["error", "single"],
     "indent": ["error", 2],
     "no-trailing-spaces": "error",
-    "eol-last": "error"
+    "eol-last": "error",
+    "comma-dangle": ["error", "never"],
+    "object-curly-spacing": ["error", "always"],
+    "array-bracket-spacing": ["error", "never"],
+    "space-before-function-paren": ["error", "never"],
+    "keyword-spacing": ["error", { "before": true, "after": true }],
+    "space-infix-ops": "error",
+    "no-multiple-empty-lines": ["error", { "max": 1 }],
+    "no-var": "error",
+    "prefer-const": "error",
+    "prefer-arrow-callback": "error",
+    "arrow-spacing": ["error", { "before": true, "after": true }],
+    "no-duplicate-imports": "error",
+    "no-useless-return": "error",
+    "no-unreachable": "error",
+    "curly": ["error", "all"],
+    "eqeqeq": ["error", "always"],
+    "no-eval": "error",
+    "no-implied-eval": "error",
+    "no-new-func": "error",
+    "no-script-url": "error",
+    "no-throw-literal": "error",
+    "radix": "error",
+    "yoda": "error"
   },
   "globals": {
     "$": "readonly",

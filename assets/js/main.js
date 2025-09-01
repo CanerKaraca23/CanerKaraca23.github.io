@@ -1,36 +1,34 @@
-$(function () {
+$(() => {
   'use strict';
 
   // Cache DOM elements for better performance
-  var $window = $(window),
-      $htmlBody = $('html, body'),
-      $topButton = $('.top'),
-      $flexContainer = $('.flex-container'),
-      $searchBox = $('.search-box'),
-      $searchClose = $('.search-icon-close'),
-      $searchInput = $('#search-input'),
-      $menuIcon = $('.menu-icon, .menu-icon-close'),
-      $searchIcon = $('.search-icon');
+  const $window = $(window),
+    $htmlBody = $('html, body'),
+    $topButton = $('.top'),
+    $flexContainer = $('.flex-container'),
+    $searchBox = $('.search-box'),
+    $searchClose = $('.search-icon-close'),
+    $searchInput = $('#search-input'),
+    $menuIcon = $('.menu-icon, .menu-icon-close'),
+    $searchIcon = $('.search-icon');
 
-  var waiting;
+  let waiting;
 
   /* -------- Scroll to top button ------- */
-  $topButton.on('click', function() {
-    $htmlBody
-      .stop()
-      .animate({ scrollTop: 0 }, 'slow', 'swing');
+  $topButton.on('click', () => {
+    $htmlBody.stop().animate({ scrollTop: 0 }, 'slow', 'swing');
   });
 
   // Throttle scroll events for better performance
-  var scrollTimeout;
+  let scrollTimeout;
   function throttledScrollHandler() {
     if (scrollTimeout) {
       return;
     }
-    
-    scrollTimeout = setTimeout(function() {
+
+    scrollTimeout = setTimeout(() => {
       scrollTimeout = null;
-      
+
       if ($window.scrollTop() > $window.height()) {
         $topButton.addClass('is-active');
       } else {
@@ -42,10 +40,10 @@ $(function () {
   $window.on('scroll', throttledScrollHandler);
 
   // Menu button - use event delegation to prevent memory leaks
-  $menuIcon.on('click', function (e) {
+  $menuIcon.on('click', e => {
     e.preventDefault();
     e.stopPropagation();
-    
+
     if ($flexContainer.hasClass('active')) {
       hideLayer();
     } else {
@@ -55,24 +53,24 @@ $(function () {
 
   function showLayer() {
     $flexContainer.addClass('active');
-    setTimeout(function () {
+    setTimeout(() => {
       $flexContainer.removeClass('transparent').addClass('opaque');
     }, 10);
   }
 
   function hideLayer() {
     $flexContainer.removeClass('opaque').addClass('transparent');
-    setTimeout(function() {
+    setTimeout(() => {
       $flexContainer.removeClass('active');
     }, 600);
   }
 
   // Click to close
-  $flexContainer.on('click', function (e) {
+  $flexContainer.on('click', e => {
     if ($flexContainer.hasClass('active') && e.target.tagName !== 'A') {
       if (e.target.classList.contains('night')) {
         clearTimeout(waiting);
-        waiting = setTimeout(function() {
+        waiting = setTimeout(() => {
           hideLayer();
         }, 1000);
       } else {
@@ -82,7 +80,7 @@ $(function () {
   });
 
   // Press Escape key to close menu and search
-  $window.on('keydown', function (e) {
+  $window.on('keydown', e => {
     if (e.key === 'Escape') {
       if ($flexContainer.hasClass('active')) {
         hideLayer();
@@ -93,21 +91,21 @@ $(function () {
   });
 
   // Search functionality
-  var searchCloseHandlerAttached = false;
+  let searchCloseHandlerAttached = false;
 
-  $searchIcon.on('click', function (e) {
+  $searchIcon.on('click', e => {
     e.preventDefault();
-    
+
     // Only toggle search if not inline search form
     if ($('.search-form.inline').length === 0) {
       $searchBox.toggleClass('search-active');
     }
-    
+
     $searchInput.focus();
-    
+
     // Attach close handler only once to prevent memory leaks
     if ($searchBox.hasClass('search-active') && !searchCloseHandlerAttached) {
-      $searchClose.one('click', function (e) {
+      $searchClose.one('click', e => {
         e.preventDefault();
         $searchBox.removeClass('search-active');
         searchCloseHandlerAttached = false;
@@ -119,7 +117,7 @@ $(function () {
   });
 
   // Cleanup on page unload to prevent memory leaks
-  $window.on('beforeunload', function() {
+  $window.on('beforeunload', () => {
     clearTimeout(waiting);
     clearTimeout(scrollTimeout);
   });

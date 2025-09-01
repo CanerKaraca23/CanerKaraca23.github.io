@@ -1,0 +1,10 @@
+# Ignore files that shouldn't be formatted
+node_modules/
+_site/
+.git/
+*.min.js
+*.min.css
+assets/fonts/
+assets/css/highlighter/
+# Keep Jekyll search as-is since it's a third-party bundled file
+assets/js/jekyll-search.js

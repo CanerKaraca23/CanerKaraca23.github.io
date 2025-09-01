@@ -1,23 +1,23 @@
-$(function() {
+$(() => {
   'use strict';
-  
-  var postURLs,
-      isFetchingPosts = false,
-      shouldFetchPosts = true,
-      loadNewPostsThreshold = 10;
+
+  let postURLs,
+    isFetchingPosts = false,
+    shouldFetchPosts = true;
+  const loadNewPostsThreshold = 10;
 
   // Cache DOM elements for better performance
-  var $tagMaster = $('.tag-master:not(.hidden)'),
-      $postList = $tagMaster.find('.post-list'),
-      $spinner = $('.spinner');
-  
+  const $tagMaster = $('.tag-master:not(.hidden)'),
+    $postList = $tagMaster.find('.post-list'),
+    $spinner = $('.spinner');
+
   // Get initial posts count
-  var postsToLoad = $postList.children().length;
+  const postsToLoad = $postList.children().length;
 
   // Load the JSON file containing all URLs
   const queryString = window.location.search;
   const urlParams = new URLSearchParams(queryString);
-  
+
   // If there's no spinner, it's not a page where posts should be fetched
   if ($spinner.length < 1) {
     shouldFetchPosts = false;
@@ -28,13 +28,13 @@ $(function() {
     if (urlParams.has('tag')) {
       const tag = urlParams.get('tag');
       const tagElement = document.getElementById(tag);
-      
+
       if (tagElement) {
         tagElement.classList.toggle('hidden');
       }
-      
+
       $.getJSON('./posts-by-tag.json')
-        .done(function(data) {
+        .done(data => {
           if (data && Array.isArray(data)) {
             const tagItem = data.find(el => el.tag === tag);
             if (tagItem && tagItem.posts) {
@@ -49,13 +49,13 @@ $(function() {
             }
           }
         })
-        .fail(function(jqXHR, textStatus, errorThrown) {
+        .fail((jqXHR, textStatus, errorThrown) => {
           console.error('Failed to load posts-by-tag.json:', textStatus, errorThrown);
           disableFetching();
         });
     } else {
       $.getJSON('./all-posts.json')
-        .done(function(data) {
+        .done(data => {
           if (data && data.posts) {
             postURLs = data.posts;
             // If there aren't any more posts available to load than already visible, disable fetching
@@ -64,7 +64,7 @@ $(function() {
             }
           }
         })
-        .fail(function(jqXHR, textStatus, errorThrown) {
+        .fail((jqXHR, textStatus, errorThrown) => {
           console.error('Failed to load all-posts.json:', textStatus, errorThrown);
           disableFetching();
         });
@@ -75,24 +75,26 @@ $(function() {
   loadPostData();
 
   // Throttle scroll events for better performance
-  var scrollTimeout;
+  let scrollTimeout;
   function throttledScrollHandler() {
     if (scrollTimeout) {
       return;
     }
-    
-    scrollTimeout = setTimeout(function() {
+
+    scrollTimeout = setTimeout(() => {
       scrollTimeout = null;
-      
-      if (!shouldFetchPosts || isFetchingPosts) return;
-      
-      var windowHeight = $(window).height(),
-          windowScrollPosition = $(window).scrollTop(),
-          bottomScrollPosition = windowHeight + windowScrollPosition,
-          documentHeight = $(document).height();
-      
+
+      if (!shouldFetchPosts || isFetchingPosts) {
+        return;
+      }
+
+      const windowHeight = $(window).height(),
+        windowScrollPosition = $(window).scrollTop(),
+        bottomScrollPosition = windowHeight + windowScrollPosition,
+        documentHeight = $(document).height();
+
       // If we've scrolled past the loadNewPostsThreshold, fetch posts
-      if ((documentHeight - loadNewPostsThreshold) < bottomScrollPosition) {
+      if (documentHeight - loadNewPostsThreshold < bottomScrollPosition) {
         fetchPosts();
       }
     }, 100); // 100ms throttle
@@ -100,7 +102,7 @@ $(function() {
 
   // Are we close to the end of the page? If we are, load more posts
   $(window).scroll(throttledScrollHandler);
-  
+
   // Fetch a chunk of posts
   function fetchPosts() {
     // Exit if postURLs haven't been loaded
@@ -108,59 +110,65 @@ $(function() {
       console.warn('postURLs not available or invalid');
       return;
     }
-    
+
     isFetchingPosts = true;
-    
+
     // Load as many posts as there were present on the page when it loaded
     // After successfully loading a post, load the next one
-    var loadedPosts = 0,
-        postCount = $postList.children().length,
-        callback = function() {
-          loadedPosts++;
-          var postIndex = postCount + loadedPosts;
-          
-          if (postIndex > postURLs.length - 1) {
-            disableFetching();
-            return;
-          }
-          
-          if (loadedPosts < postsToLoad) {
-            fetchPostWithIndex(postIndex, callback);
-          } else {
-            isFetchingPosts = false;
-          }
-        };
-    
+    let loadedPosts = 0;
+    const postCount = $postList.children().length,
+      callback = function () {
+        loadedPosts++;
+        const postIndex = postCount + loadedPosts;
+
+        if (postIndex > postURLs.length - 1) {
+          disableFetching();
+          return;
+        }
+
+        if (loadedPosts < postsToLoad) {
+          fetchPostWithIndex(postIndex, callback);
+        } else {
+          isFetchingPosts = false;
+        }
+      };
+
     fetchPostWithIndex(postCount + loadedPosts, callback);
   }
-  
+
   function fetchPostWithIndex(index, callback) {
     if (!postURLs || index >= postURLs.length) {
       console.warn('Invalid post index or postURLs not available');
-      if (callback) callback();
+      if (callback) {
+        callback();
+      }
       return;
     }
-    
-    var postURL = postURLs[index];
-    
+
+    const postURL = postURLs[index];
+
     $.get(postURL)
-      .done(function(data) {
+      .done(data => {
         try {
-          var $postContent = $(data).find('.post');
+          const $postContent = $(data).find('.post');
           if ($postContent.length > 0) {
             $postContent.appendTo($postList);
           }
         } catch (error) {
           console.error('Error processing post data:', error);
         }
-        if (callback) callback();
+        if (callback) {
+          callback();
+        }
       })
-      .fail(function(jqXHR, textStatus, errorThrown) {
+      .fail((jqXHR, textStatus, errorThrown) => {
         console.error('Failed to load post:', postURL, textStatus, errorThrown);
-        if (callback) callback();
+        if (callback) {
+          callback();
+        }
       });
   }
-  
+
   function disableFetching() {
     shouldFetchPosts = false;
     isFetchingPosts = false;
