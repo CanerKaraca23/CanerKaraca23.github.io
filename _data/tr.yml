@@ -1,0 +1,35 @@
+# Turkish translations
+ui:
+  # Month names in Turkish
+  months:
+    - "Ocak"
+    - "Şubat" 
+    - "Mart"
+    - "Nisan"
+    - "Mayıs"
+    - "Haziran"
+    - "Temmuz"
+    - "Ağustos"
+    - "Eylül"
+    - "Ekim"
+    - "Kasım"
+    - "Aralık"
+  
+  # Short month names in Turkish
+  months_short:
+    - "Oca"
+    - "Şub"
+    - "Mar"
+    - "Nis"
+    - "May"
+    - "Haz"
+    - "Tem"
+    - "Ağu"
+    - "Eyl"
+    - "Eki"
+    - "Kas"
+    - "Ara"
+  
+  # Read time text (already exists in post_meta.html but centralizing here)
+  minute_read: "dakika okuma süresi"
+  less_than: "daha kısa okuma süresi"
