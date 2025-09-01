@@ -1,0 +1,84 @@
+name: Security Audit
+
+on:
+  schedule:
+    # Run every Monday at 9 AM UTC
+    - cron: '0 9 * * 1'
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+  workflow_dispatch: # Allow manual triggering
+
+jobs:
+  security-audit:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+    
+    - name: Setup Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: '20'
+        cache: 'npm'
+        
+    - name: Setup Ruby
+      uses: ruby/setup-ruby@v1
+      with:
+        ruby-version: '3.2'
+        bundler-cache: true
+        
+    - name: Install Node.js dependencies
+      run: npm ci
+        
+    - name: Install bundle-audit
+      run: gem install bundle-audit
+      
+    - name: Run npm security audit
+      run: |
+        echo "Running npm audit..."
+        npm audit --audit-level moderate
+      continue-on-error: false
+      
+    - name: Run bundle security audit  
+      run: |
+        echo "Running bundle audit..."
+        bundle-audit check
+      continue-on-error: false
+      
+    - name: Check for deprecated npm packages
+      run: |
+        echo "Checking for deprecated packages..."
+        npm ls --depth=0 --json | jq '.dependencies | to_entries[] | select(.value.deprecated) | {name: .key, deprecated: .value.deprecated}'
+      continue-on-error: true
+      
+    - name: Generate security report
+      if: always()
+      run: |
+        echo "# Security Audit Summary" > security-summary.md
+        echo "Generated on: $(date)" >> security-summary.md
+        echo "" >> security-summary.md
+        echo "## npm audit results:" >> security-summary.md
+        npm audit --json > npm-audit.json || true
+        echo '```json' >> security-summary.md
+        cat npm-audit.json >> security-summary.md
+        echo '```' >> security-summary.md
+        echo "" >> security-summary.md
+        echo "## bundle-audit results:" >> security-summary.md
+        bundle-audit check --format json > bundle-audit.json || true
+        echo '```json' >> security-summary.md
+        cat bundle-audit.json >> security-summary.md  
+        echo '```' >> security-summary.md
+        
+    - name: Upload security reports
+      if: always()
+      uses: actions/upload-artifact@v4
+      with:
+        name: security-audit-reports
+        path: |
+          security-summary.md
+          npm-audit.json
+          bundle-audit.json
+        retention-days: 30

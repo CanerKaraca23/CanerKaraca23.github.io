@@ -3,11 +3,11 @@ const cache = require('gulp-cache');
 const cp = require('child_process');
 const browserSync = require('browser-sync').create();
 
-const jekyll = process.platform === 'win32' ? 'jekyll.bat' : 'jekyll';
+const jekyll = process.platform === 'win32' ? 'bundle.bat' : 'bundle';
 
 // Build the Jekyll Site
 function jekyllBuild(done) {
-    return cp.spawn(jekyll, ['build'], {stdio: 'inherit'})
+    return cp.spawn(jekyll, ['exec', 'jekyll', 'build'], {stdio: 'inherit'})
         .on('close', (code) => {
             if (code === 0) {
                 done();
