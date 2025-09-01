@@ -64,7 +64,10 @@ function copyImages() {
 
 // Copy other static files
 function copyStatic() {
-    return src(['*.html', '*.json', '*.xml', '*.txt'], { allowEmpty: true })
+    return src(['*.html', '*.json', '*.xml', '*.txt'], { 
+            allowEmpty: true,
+            ignore: ['package*.json'] 
+        })
         .pipe(dest('_site'))
         .pipe(browserSync.stream())
         .on('error', function(err) {
