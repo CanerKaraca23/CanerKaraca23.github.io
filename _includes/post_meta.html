@@ -11,7 +11,7 @@
     {% if document.show_date and document.date %}
       {% assign date = document.date %}
       <{% if include.type == "recent-item-meta" %}p{% else %}span{% endif %} class="page_meta-date">
-        <time datetime="{{ date | date_to_xmlschema }}">{{ date | date: "%-d %B, %Y" }}</time>
+        {% include localized_date.html date=date format="long" %}
       </{% if include.type == "recent-item-meta" %}p{% else %}span{% endif %}>
     {% endif %}
     {% unless include.type == "recent-item-meta" %}
@@ -23,11 +23,11 @@
     {% assign words = document.content | strip_html | number_of_words %}
     <{% if include.type == "recent-item-meta" %}p{% else %}span{% endif %} class="page_meta-readtime">
       {% if words < words_per_minute %}
-       1 {{ site.data.ui-text[site.locale].minute_read | default: 'dakikadan' }} {{ site.data.ui-text[site.locale].less_than | default: 'daha kısa okuma süresi' }}
+       1 {{ site.data[site.locale].ui.minute_read | default: site.data.en.ui.minute_read | default: 'dakikadan' }} {{ site.data[site.locale].ui.less_than | default: site.data.en.ui.less_than | default: 'daha kısa okuma süresi' }}
       {% elsif words == words_per_minute %}
-       1 {{ site.data.ui-text[site.locale].minute_read | default: 'dakika okuma süresi' }}
+       1 {{ site.data[site.locale].ui.minute_read | default: site.data.en.ui.minute_read | default: 'dakika okuma süresi' }}
       {% else %}
-      {{ words | divided_by: words_per_minute }} {{ site.data.ui-text[site.locale].minute_read | default: 'dakika okuma süresi' }}
+      {{ words | divided_by: words_per_minute }} {{ site.data[site.locale].ui.minute_read | default: site.data.en.ui.minute_read | default: 'dakika okuma süresi' }}
       {% endif %}
     </{% if include.type == "recent-item-meta" %}p{% else %}span{% endif %}>
   {% endif %}
