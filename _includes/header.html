@@ -1,14 +1,20 @@
 {% include calculate_relative_base.html %}
 {% include escape-404.html %}
 
-<header class="main-header">
+<header class="main-header" role="banner">
   <div class="wrapper">
     <div class="header-flex">
       <div class="menu-icon-container">
-        <span class="menu-icon"><i class="fa fa-bars" aria-hidden="true"></i></span>
+        <button class="menu-icon" aria-label="Menüyü aç" aria-expanded="false" aria-controls="main-nav">
+          <i class="fa fa-bars" aria-hidden="true"></i>
+          <span class="sr-only">Menü</span>
+        </button>
       </div>
-      <nav class="main-nav">
-        <span class="menu-icon-close"><i class="fa fa-times" aria-hidden="true"></i></span>
+      <nav class="main-nav" id="main-nav" role="navigation" aria-label="Ana navigasyon">
+        <button class="menu-icon-close" aria-label="Menüyü kapat">
+          <i class="fa fa-times" aria-hidden="true"></i>
+          <span class="sr-only">Kapat</span>
+        </button>
         <ul>
           <li>
             {% include theme-toggle.html %}
@@ -57,9 +63,16 @@
       </nav>
       {% capture logo_url %}{{ relativebase }}{{ site.logo  }}{% endcapture %}
       {% assign logo_url = logo_url | replace: "//", "/" %}
-      <div class="logo"><a href="{{ relativebase }}"><img class="logo" id="logo" src="{{ logo_url }}" alt="{{ site.title }}"></a></div>
+      <div class="logo">
+        <a href="{{ relativebase }}" aria-label="{{ site.title }} ana sayfa">
+          <img class="logo" id="logo" src="{{ logo_url }}" alt="{{ site.title }} logosu">
+        </a>
+      </div>
       <div class="search-icon-container">
-        <span class="search-icon"><a><i class="fa fa-search" aria-hidden="true"></i></a></span>
+        <button class="search-icon" aria-label="Arama yapın" aria-expanded="false" aria-controls="search-container">
+          <i class="fa fa-search" aria-hidden="true"></i>
+          <span class="sr-only">Ara</span>
+        </button>
       </div>
     </div>
   </div>

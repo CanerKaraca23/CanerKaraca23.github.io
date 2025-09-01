@@ -1,0 +1,100 @@
+/* Accessibility Improvements */
+
+/* Skip link */
+.skip-link {
+  position: absolute;
+  top: -40px;
+  left: 6px;
+  background: #000;
+  color: #fff;
+  padding: 8px;
+  text-decoration: none;
+  z-index: 9999;
+  border-radius: 0 0 4px 4px;
+}
+
+.skip-link:focus {
+  top: 0;
+}
+
+/* Screen reader only text */
+.sr-only {
+  position: absolute !important;
+  width: 1px !important;
+  height: 1px !important;
+  padding: 0 !important;
+  margin: -1px !important;
+  overflow: hidden !important;
+  clip: rect(0, 0, 0, 0) !important;
+  white-space: nowrap !important;
+  border: 0 !important;
+}
+
+/* Improved focus styles */
+a:focus,
+button:focus,
+input:focus,
+textarea:focus,
+select:focus,
+.top:focus {
+  outline: 2px solid #0078d4;
+  outline-offset: 2px;
+}
+
+/* Better button accessibility */
+.top {
+  cursor: pointer;
+}
+
+.top:hover,
+.top:focus {
+  opacity: 0.8;
+}
+
+/* Enhanced search form accessibility */
+.search-form label[for="search-input"] {
+  display: block;
+  margin-bottom: 4px;
+  font-weight: bold;
+}
+
+/* Improve link contrast and readability */
+a {
+  text-decoration-skip-ink: auto;
+}
+
+/* Better spacing for screen readers */
+.post-card-title {
+  margin: 0 0 8px 0;
+}
+
+/* Improved heading hierarchy styles */
+h1, h2, h3, h4, h5, h6 {
+  margin-top: 1.5em;
+  margin-bottom: 0.5em;
+  line-height: 1.2;
+}
+
+h1:first-child,
+h2:first-child,
+h3:first-child,
+h4:first-child,
+h5:first-child,
+h6:first-child {
+  margin-top: 0;
+}
+
+/* Ensure minimum touch target size for mobile */
+@media (max-width: 768px) {
+  .post-card-link,
+  .top,
+  button,
+  input[type="submit"],
+  input[type="button"] {
+    min-height: 44px;
+    min-width: 44px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+}
