@@ -30,6 +30,9 @@ ui:
     - "Kas"
     - "Ara"
   
-  # Read time text (already exists in post_meta.html but centralizing here)
+  # Read time text
   minute_read: "dakika okuma süresi"
   less_than: "daha kısa okuma süresi"
+  
+  # Other UI text
+  read_more: "Daha Fazla Oku"

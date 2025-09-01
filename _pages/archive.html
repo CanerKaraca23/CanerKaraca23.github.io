@@ -20,7 +20,7 @@ infinite: yes
 			<a class="post-list-title" href="{{ post_url }}">{{ post.title }}</a>
 			{% include post_meta.html type="post-card-meta" %}
 			<div class="post-excerpt">
-				{{ post.content | markdownify | strip_newlines | truncatewords: 100 }}<a class="read-more" href="{{ post_url }}"> Daha Fazla Oku</a>
+				{{ post.content | markdownify | strip_newlines | truncatewords: 100 }}<a class="read-more" href="{{ post_url }}"> {{ site.data[site.locale].ui.read_more | default: site.data.en.ui.read_more | default: 'Daha Fazla Oku' }}</a>
 			</div>
 		</div>
 	{% endfor %}

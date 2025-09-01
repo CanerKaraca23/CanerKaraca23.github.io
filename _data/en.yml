@@ -33,3 +33,6 @@ ui:
   # Read time text
   minute_read: "minute read"
   less_than: "less than"
+  
+  # Other UI text
+  read_more: "Read More"
