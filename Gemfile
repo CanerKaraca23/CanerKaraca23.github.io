@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 
 # Use the latest Ruby version supported by GitHub Pages
-ruby '~> 3.2.0'
+ruby '~> 3.4.0'
 
 # GitHub Pages Jekyll version (for GitHub Pages deployment)
 gem 'github-pages', '~> 232', group: :jekyll_plugins
