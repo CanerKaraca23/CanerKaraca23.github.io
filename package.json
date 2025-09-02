@@ -1,0 +1,32 @@
+{
+  "name": "caner-karaca-blog",
+  "version": "1.0.0",
+  "description": "Caner Karaca's personal blog built with Jekyll",
+  "main": "gulpfile.js",
+  "repository": "https://github.com/CanerKaraca23/CanerKaraca23.github.io",
+  "author": "Caner Karaca",
+  "license": "MIT",
+  "engines": {
+    "node": ">=16.0.0",
+    "npm": ">=8.0.0"
+  },
+  "dependencies": {
+    "browser-sync": "^3.0.4",
+    "gulp": "^5.0.1"
+  },
+  "devDependencies": {
+    "eslint": "^8.57.0",
+    "prettier": "^3.3.3"
+  },
+  "scripts": {
+    "dev": "gulp watch",
+    "build": "gulp",
+    "start": "gulp default",
+    "serve": "gulp serve",
+    "lint": "eslint assets/js/main.js assets/js/infinite-jekyll.js gulpfile.js",
+    "lint:fix": "eslint assets/js/main.js assets/js/infinite-jekyll.js gulpfile.js --fix",
+    "format": "prettier --write assets/js/main.js assets/js/infinite-jekyll.js gulpfile.js",
+    "format:check": "prettier --check assets/js/main.js assets/js/infinite-jekyll.js gulpfile.js",
+    "quality": "npm run lint:fix && npm run format"
+  }
+}

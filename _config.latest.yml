@@ -1,0 +1,214 @@
+# Site settings
+title: Caner Karaca
+description: 'Caner Karaca' # this means to ignore newlines until "baseurl:"
+locale: "tr"
+permalink: ':title:output_ext'
+baseurl: "/" # the subpath of your site, e.g. /blog
+url: "https://canerkaraca23.github.io/" # the base hostname & protocol for your site, e.g. http://example.com
+logo: "/assets/img/branding/Caner_Karaca_Logo_Full_Light.svg"
+logo-icon: "/assets/img/branding/Caner_Karaca_Logo_Full_Light.svg"
+logo-icon-SEO: "/assets/img/branding/Caner_Karaca_Logo_Full_Light.png" # must be a non SVG file
+
+# Night/Dark mode
+# Default mode is "auto", "auto" is for auto nightshift
+# (19:00 - 07:00), "manual" is for manual toggle, and
+# "on/off" is for default on/off.
+#
+# Whatever the user's choice is, it will supersede the
+# default setting of the site and be kept during the
+# visit (session). Only the dark mode setting is "manual",
+# it will be always kept on every visit (i.e. no matter
+# the browser is closed or not)
+night_mode: "auto"
+
+logo-dark: "/assets/img/branding/Caner_Karaca_Logo_Full_Dark.svg"
+highlight_theme: syntax-base16.monokai.dark # select a dark theme for the code highlighter if needed
+
+# Author settings
+author: Caner Karaca # add your name
+author-pic: Profil_Fotom.jpg
+about-author: Öğrenci
+
+# Contact links
+email: canerkaraca_23@hotmail.com # Add your Email address
+phone: # Add your Phone number
+website: https://canerkaraca23.github.io # Add your website
+linkedin: canerkaraca # Add your Linkedin handle
+github: CanerKaraca23 # Add your Github handle
+twitter: '@Caner__Karaca' # Add your Twitter handle
+bandcamp: # Add your Bandcamp username
+stackoverflow: # Add your stackoverflow account
+
+# Newsletter
+mailchimp: # ""
+
+# Tracker
+analytics: G-WNGQQLK5YG # Google Analytics tag ID
+fbadmin: # Facebook ID admin
+
+# Paginate
+paginate: 6
+paginate_path: 'page:num'
+words_per_minute: 200
+
+extensions:
+  mermaid_enable: true
+
+# Comments
+comments: #[disqus, utteranc]
+comments_opts:
+  comments_curtain: yes # leave empty to show the disqus embed directly
+  repo: # The GitHub repo URL.  https://utteranc.es/
+  issue_term: # The GitHub issue label
+  label: # The GitHub comments label
+  theme: # The GitHub comment's there. e.g. github-dark
+  # Disqus
+  discus_identifier: # Add your discus identifier
+
+# Build settings - Jekyll 4.x modern configuration
+markdown: kramdown
+kramdown:
+  input: GFM
+  hard_wrap: false
+  syntax_highlighter: rouge
+  syntax_highlighter_opts:
+    css_class: 'highlight'
+    default_lang: text
+    guess_lang: true
+    span:
+      line_numbers: false
+    block:
+      line_numbers: false
+      start_line: 1
+
+mathjax: true
+highlighter: rouge
+
+# Modern Jekyll 4.x features
+liquid:
+  error_mode: warn
+  strict_filters: false
+  strict_variables: false
+
+# Performance optimizations
+incremental: true
+regenerate: true
+safe: false
+profile: false
+livereload: false
+
+# Compression settings - enhanced for Jekyll 4.x
+compress_html:
+  clippings: all
+  comments: all
+  endings: all
+  ignore:
+    envs: [development]
+  blanklines: false
+  profile: false
+  startings: [html, head, body]
+
+# Outputting
+timezone: Europe/Istanbul # https://en.wikipedia.org/wiki/List_of_tz_database_time_zones
+
+# Category archives
+category_archive:
+  type: liquid
+  path: /categories/
+
+# Sass/SCSS processing - Jekyll 4.x with Dart Sass
+sass:
+  implementation: sass-embedded
+  style: compressed
+  sass_dir: assets/css/sass
+  sourcemap: never
+  load_paths:
+    - _sass
+    - node_modules
+
+# Plugins - Jekyll 4.x compatible
+plugins:
+  - jekyll-paginate
+  - jekyll-feed
+  - jekyll-sitemap
+  - jekyll-seo-tag
+  - jekyll-redirect-from
+  - jekyll-include-cache
+
+# Build settings
+watch: false
+
+# File management
+include: [_pages]
+exclude:
+  - node_modules/
+  - vendor/
+  - .bundle/
+  - gulpfile.js
+  - package.json
+  - package-lock.json
+  - yarn.lock
+  - README.md
+  - LICENSE
+  - "*.log"
+  - assets/css/sass/
+  - Gemfile
+  - Gemfile.lock
+  - Gemfile.latest
+  - Gemfile.test
+  - .git/
+  - .github/
+  - .gitignore
+
+# Keep files
+keep_files:
+  - .git
+  - .svn
+  - .nojekyll
+
+# Encoding
+encoding: utf-8
+
+# Collections - Jekyll 4.x modern collection setup
+collections:
+  authors:
+    output: false
+  categories:
+    output: true
+    permalink: /:collection/:name/
+
+# Defaults - enhanced for Jekyll 4.x
+defaults:
+  - scope:
+      path: ""
+      type: posts
+    values:
+      layout: post
+      author: Caner Karaca
+      show_sidebar: true
+      comments: true
+      share: true
+      related: true
+  - scope:
+      path: "_pages"
+      type: pages
+    values:
+      layout: page
+      show_sidebar: true
+      comments: false
+  - scope:
+      path: ""
+      type: categories
+    values:
+      layout: category
+      show_sidebar: true
+
+# Jekyll 4.x specific optimization
+strict_front_matter: false
+future: false
+unpublished: false
+limit_posts: 0
+show_drafts: false
+
+# Security - Jekyll 4.x
+whitelist: []

@@ -1,0 +1,46 @@
+---
+layout: default
+---
+{% include calculate_relative_base.html %}
+{% capture post_url %}{{ relativebase }}{{ page.url }}{% endcapture %}
+{% assign post_url = post_url | replace: "//", "/" %}
+<section class="hidden">
+  <div class="post">
+      <a  class="post-list-title" href="{{ post_url }}">{{ page.title }}</a>
+      {% include post_meta.html type="post-card-meta" %}
+        <div class="post-excerpt">
+            {{ page.content | markdownify | strip_newlines | truncatewords: 100 }}<a class="read-more" href="{{ post_url }}"> {{ site.data[site.locale].ui.read_more | default: site.data.en.ui.read_more | default: 'Daha Fazla Oku' }}</a>
+        </div>
+  </div>
+</section>
+<div class="flex-container transparent">
+  {% include header.html %}
+  <article class="page" itemscope itemtype="https://schema.org/CreativeWork" role="main" aria-label="Makale içeriği">
+    {% include schema-meta.html %}
+    <header class="page-image">
+      <div class="cover-image" style="background: url('{{ relativebase }}assets/img/{{ page.img }}') center no-repeat; background-size: cover;" aria-label="Makale kapak görseli"></div>
+    </header>
+    <main class="wrapper">
+      <div class="page-content">
+        <header class="header-page">
+          <h1 class="page-title">{{ page.title }}</h1>
+          {% include post_meta.html type="post-page-meta" %}
+        </header>
+        {% include sidebar.html context="post" class="side" id="sidebar" %}
+        {% if page.toc %}{% include sidebar-toc.html %}{% endif %}
+        {% include github-button.html %}
+        <section class="post-content" aria-label="Makale içeriği">
+          {{page.content | markdownify}}
+        </section>
+        {% include sidebar.html context="post" class="inline" id="post-end" %}
+        <div class="separator" role="separator"></div>
+        {% include author-box.html %}
+        {% include recent-post.html %}
+        {% include newsletter.html %}
+        {% include comments.html %}
+      </div>
+    </main> <!-- End Wrapper -->
+  </article>
+  {% include search.html %}
+  {% include footer.html %}
+</div>

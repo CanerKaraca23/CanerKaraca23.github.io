@@ -1,0 +1,29 @@
+---
+layout: home-page
+---
+{% include calculate_relative_base.html %}
+
+<section aria-label="Blog yazıları">
+  <ol class="post-card-box clearfix">
+    {% for post in paginator.posts %}
+    {% include remove_double_slash.html %}
+    <li>
+      <article class="post-card">
+        <a href="{{ post_url }}" title="{{ post.title }}" class="post-card-image" aria-label="{{ post.title }} makalesini oku" style="background: url('{{ relativebase }}assets/img/{{ post.img }}') center no-repeat; background-size: cover;">
+          <span class="sr-only">{{ post.title }} makale görseli</span>
+        </a>
+        <div class="post-card-body">
+          <header class="post-card-title-and-meta">
+            <h2 class="post-card-title">
+              <a href="{{ post_url }}" class="post-card-link">
+              {{ post.title }}
+              </a>
+            </h2>
+            {% include post_meta.html type="post-card-meta" date="none" %}
+          </header>
+        </div>
+      </article>
+    </li>
+    {% endfor %}
+  </ol>
+</section>

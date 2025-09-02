@@ -1,0 +1,38 @@
+# English translations
+ui:
+  # Month names in English
+  months:
+    - "January"
+    - "February"
+    - "March"
+    - "April"
+    - "May"
+    - "June"
+    - "July"
+    - "August"
+    - "September"
+    - "October"
+    - "November"
+    - "December"
+  
+  # Short month names in English
+  months_short:
+    - "Jan"
+    - "Feb"
+    - "Mar"
+    - "Apr"
+    - "May"
+    - "Jun"
+    - "Jul"
+    - "Aug"
+    - "Sep"
+    - "Oct"
+    - "Nov"
+    - "Dec"
+  
+  # Read time text
+  minute_read: "minute read"
+  less_than: "less than"
+  
+  # Other UI text
+  read_more: "Read More"

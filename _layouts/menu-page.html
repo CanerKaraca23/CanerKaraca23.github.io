@@ -1,0 +1,12 @@
+---
+layout: default
+---
+<div class="flex-container transparent">
+  {% include header.html %}
+  <main class="content wrapper" role="main" aria-label="Sayfa içeriği">
+    {{ content }}
+  {% include search.html %}
+  {% include pagination.html %}
+  </main> <!-- End Wrapper -->
+  {% include footer.html %}
+</div>

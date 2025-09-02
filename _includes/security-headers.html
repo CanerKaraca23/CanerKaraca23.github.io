@@ -1,0 +1,17 @@
+<!-- Security Headers and Meta Tags -->
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<meta http-equiv="Content-Security-Policy" content="
+  default-src 'self';
+  script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://www.google-analytics.com;
+  style-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com https://fonts.googleapis.com;
+  img-src 'self' data: https://www.google-analytics.com;
+  font-src 'self' https://fonts.gstatic.com https://cdnjs.cloudflare.com;
+  connect-src 'self' https://www.google-analytics.com;
+  frame-ancestors 'none';
+  base-uri 'self';
+  form-action 'self';
+">
+<meta http-equiv="X-Content-Type-Options" content="nosniff">
+<meta http-equiv="X-Frame-Options" content="DENY">
+<meta http-equiv="X-XSS-Protection" content="1; mode=block">
+<meta name="robots" content="index, follow">

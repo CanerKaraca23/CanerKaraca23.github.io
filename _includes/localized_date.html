@@ -1,0 +1,35 @@
+{% comment %}
+  Custom date formatter with localized month names
+  Usage: {% include localized_date.html date=post.date format="long" %}
+  Parameters:
+  - date: the date object to format
+  - format: "long" (e.g., "14 Nisan, 2023") or "short" (e.g., "14 Nis, 2023")
+{% endcomment %}
+
+{% assign target_date = include.date %}
+{% assign date_format = include.format | default: "long" %}
+{% assign current_locale = site.locale | default: "en" %}
+
+{% comment %} Extract date components {% endcomment %}
+{% assign day = target_date | date: "%-d" %}
+{% assign month_number = target_date | date: "%-m" | minus: 1 %}
+{% assign year = target_date | date: "%Y" %}
+
+{% comment %} Get the appropriate month name from translations {% endcomment %}
+{% if date_format == "short" %}
+  {% assign month_name = site.data[current_locale].ui.months_short[month_number] %}
+{% else %}
+  {% assign month_name = site.data[current_locale].ui.months[month_number] %}
+{% endif %}
+
+{% comment %} Fallback to English if translation not found {% endcomment %}
+{% unless month_name %}
+  {% if date_format == "short" %}
+    {% assign month_name = site.data.en.ui.months_short[month_number] %}
+  {% else %}
+    {% assign month_name = site.data.en.ui.months[month_number] %}
+  {% endif %}
+{% endunless %}
+
+{% comment %} Output the formatted date {% endcomment %}
+<time datetime="{{ target_date | date_to_xmlschema }}">{{ day }} {{ month_name }}, {{ year }}</time>
