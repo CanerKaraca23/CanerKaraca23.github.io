@@ -24,4 +24,4 @@ gem 'tzinfo-data', platforms: [:windows]
 gem 'wdm', '~> 0.2.0', platforms: [:windows]
 
 # Jekyll webrick for Ruby 3+
-gem 'webrick', '~> 1.8'
+gem 'webrick', '~> 1.9'
