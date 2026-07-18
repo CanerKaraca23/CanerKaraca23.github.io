@@ -1,27 +1,14 @@
-source 'https://rubygems.org'
+# frozen_string_literal: true
 
-# Use the latest Ruby version supported by GitHub Pages
-ruby '~> 3.4.0'
+source "https://rubygems.org"
 
-# GitHub Pages Jekyll version (for GitHub Pages deployment)
-gem 'github-pages', '~> 232', group: :jekyll_plugins
+gem "jekyll-theme-chirpy", "~> 7.6"
 
-# Jekyll plugins
-group :jekyll_plugins do
-  gem 'jekyll-paginate', '~> 1.1'
-  gem 'jekyll-feed', '~> 0.17'
-  gem 'jekyll-sitemap', '~> 1.4'
-  gem 'jekyll-seo-tag', '~> 2.8'
+gem "html-proofer", "~> 5.0", group: :test
+
+platforms :windows, :jruby do
+  gem "tzinfo", ">= 1", "< 3"
+  gem "tzinfo-data"
 end
 
-# Performance optimizations
-gem 'kramdown-parser-gfm', '~> 1.1'
-
-# Windows and JRuby does not include zoneinfo files, so bundle the tzinfo-data gem
-gem 'tzinfo-data', platforms: [:windows]
-
-# Performance-booster for watching directories on Windows
-gem 'wdm', '~> 0.2.0', platforms: [:windows]
-
-# Jekyll webrick for Ruby 3+
-gem 'webrick', '~> 1.8'
+gem "wdm", "~> 0.2.0", :platforms => [:windows]

@@ -1,32 +1,32 @@
+# Bundler cache
+.bundle
+vendor
+Gemfile.lock
 
-.DS_Store
-/.idea/inspectionProfiles/profiles_settings.xml
-/.idea/.gitignore
-/.idea/misc.xml
-/.idea/modules.xml
-/.idea/CanerKaraca23.github.io.iml
-/.idea/inspectionProfiles/Project_Default.xml
-/.idea/vcs.xml
-/.vscode/settings.json
-/.vscode/
-/.idea/
-.liquidrc
+# Jekyll cache
+.jekyll-cache
+.jekyll-metadata
+_site
 
-# Dependencies
-node_modules/
+# RubyGems
+*.gem
+
+# NPM dependencies
+node_modules
 package-lock.json
 
-# Build artifacts
-_site/
-.sass-cache/
-.jekyll-cache/
-.jekyll-metadata
+# IDE configurations
+.idea
+.vscode/*
+!.vscode/settings.json
+!.vscode/extensions.json
+!.vscode/tasks.json
 
-# Ruby/Bundler
-vendor/
-.bundle/
+# Misc
+_sass/vendors
+assets/js/dist
 
-# Log files
-npm-debug.log*
-yarn-debug.log*
-yarn-error.log*
+# Hidden system files
+*~
+.DS_Store
+Thumbs.db
